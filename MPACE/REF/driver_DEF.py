@@ -58,9 +58,11 @@ fin = nc.Dataset('MPACE_forcing_dephy.nc','r')
 # 3. Initial state
 ################################################
 
-# Surface pressure
+# Surface pressure and temperature
 ps  =  fin['Ps'][0,0,0]
 case.add_init_ps(ps)
+ts  =  fin['T'][0,0,0]
+case.add_init_ts(ts)
 
 # Pressure
 pressure  = fin['lev'][-1:0:-1]
